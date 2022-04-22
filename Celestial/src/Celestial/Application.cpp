@@ -1,3 +1,4 @@
+#include "clpch.h"
 #include "Application.h"
 
 #include "Celestial/Events/Event.h"

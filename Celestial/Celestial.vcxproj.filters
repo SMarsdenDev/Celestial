@@ -7,8 +7,8 @@
     <Filter Include="src\Celestial">
       <UniqueIdentifier>{F28EEE51-5E4F-6A88-278A-B3059309AF64}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Events">
-      <UniqueIdentifier>{7162C20E-5D1A-045C-C621-DDB7B2F89E4C}</UniqueIdentifier>
+    <Filter Include="src\Celestial\Events">
+      <UniqueIdentifier>{96B6F3BF-8245-7D89-2B64-918417D28D2F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,20 +22,23 @@
     <ClInclude Include="src\Celestial\EntryPoint.h">
       <Filter>src\Celestial</Filter>
     </ClInclude>
+    <ClInclude Include="src\Celestial\Events\ApplicationEvent.h">
+      <Filter>src\Celestial\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Celestial\Events\Event.h">
+      <Filter>src\Celestial\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Celestial\Events\KeyEvent.h">
+      <Filter>src\Celestial\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Celestial\Events\MouseEvent.h">
+      <Filter>src\Celestial\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Celestial\Log.h">
       <Filter>src\Celestial</Filter>
     </ClInclude>
-    <ClInclude Include="src\Celestial\Events\ApplicationEvent.h">
-      <Filter>src\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Celestial\Events\Event.h">
-      <Filter>src\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Celestial\Events\KeyEvent.h">
-      <Filter>src\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Celestial\Events\MouseEvent.h">
-      <Filter>src\Events</Filter>
+    <ClInclude Include="src\clpch.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="src\Celestial\Log.cpp">
       <Filter>src\Celestial</Filter>
+    </ClCompile>
+    <ClCompile Include="src\clpch.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

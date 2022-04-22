@@ -2,10 +2,6 @@
 
 #include "Celestial/Core.h"
 
-//! TODO: Put in PCH or CORE
-#include <string>
-#include <functional>>
-
 namespace Celestial
 {
 	enum class EventType

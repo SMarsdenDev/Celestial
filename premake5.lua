@@ -18,6 +18,9 @@ project "Celestial"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "clpch.h"
+	pchsource "Celestial/src/clpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Celestial
 {
 	class CELESTIAL_API MouseMovedEvent : public Event
