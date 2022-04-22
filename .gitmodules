@@ -1,0 +1,3 @@
+[submodule "Celestial/vendor/spdlog"]
+	path = Celestial/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
