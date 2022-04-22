@@ -1,9 +1,9 @@
 #pragma once
 
 // For use by Celestial applications
-#include "src/Application.h"
-#include "src/Log.h"
+#include "src/Celestial/Application.h"
+#include "src/Celestial/Log.h"
 
 //! Entry Point *********************
-#include "src/EntryPoint.h"
+#include "src/Celestial/EntryPoint.h"
 //! *********************************

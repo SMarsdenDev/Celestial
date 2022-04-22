@@ -3,6 +3,7 @@
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 
 namespace Celestial
@@ -28,8 +29,8 @@ namespace Celestial
 #define CL_CORE_TRACE(...)     ::Celestial::Log::GetCoreLogger()->trace(__VA_ARGS__)
 
 //! Client Log Macros
-#define CL_CLIENT_FATAL(...)     ::Celestial::Log::GetClientLogger()->critical(__VA_ARGS__)
-#define CL_CLIENT_ERROR(...)     ::Celestial::Log::GetClientLogger()->error(__VA_ARGS__)
-#define CL_CLIENT_WARN(...)      ::Celestial::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define CL_CLIENT_INFO(...)      ::Celestial::Log::GetClientLogger()->info(__VA_ARGS__)
-#define CL_CLIENT_TRACE(...)     ::Celestial::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define CL_FATAL(...)     ::Celestial::Log::GetClientLogger()->critical(__VA_ARGS__)
+#define CL_ERROR(...)     ::Celestial::Log::GetClientLogger()->error(__VA_ARGS__)
+#define CL_WARN(...)      ::Celestial::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define CL_INFO(...)      ::Celestial::Log::GetClientLogger()->info(__VA_ARGS__)
+#define CL_TRACE(...)     ::Celestial::Log::GetClientLogger()->trace(__VA_ARGS__)

@@ -21,12 +21,14 @@ project "Celestial"
 	files
 	{
 		"%{prj.name}/src/**.h",
+		"%{prj.name}/Celestial.h",
 		"%{prj.name}/src/**.cpp" 
 	}
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/src"
 	}
 
 	filter "system:windows"
