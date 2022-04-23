@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Celestial/Log.h"
+
 #ifdef CL_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

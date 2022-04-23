@@ -1,55 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    <Filter Include="Celestial">
+      <UniqueIdentifier>{1B2D3412-8797-E888-D0D5-992E3C7FC6DD}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Celestial">
-      <UniqueIdentifier>{F28EEE51-5E4F-6A88-278A-B3059309AF64}</UniqueIdentifier>
+    <Filter Include="Celestial\Events">
+      <UniqueIdentifier>{9FAC8658-8BA5-A5AA-B4D7-8A2FA02F85B6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Celestial\Events">
-      <UniqueIdentifier>{96B6F3BF-8245-7D89-2B64-918417D28D2F}</UniqueIdentifier>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Celestial.h" />
+    <ClInclude Include="src\Celestial.h" />
     <ClInclude Include="src\Celestial\Application.h">
-      <Filter>src\Celestial</Filter>
+      <Filter>Celestial</Filter>
     </ClInclude>
     <ClInclude Include="src\Celestial\Core.h">
-      <Filter>src\Celestial</Filter>
+      <Filter>Celestial</Filter>
     </ClInclude>
     <ClInclude Include="src\Celestial\EntryPoint.h">
-      <Filter>src\Celestial</Filter>
+      <Filter>Celestial</Filter>
     </ClInclude>
     <ClInclude Include="src\Celestial\Events\ApplicationEvent.h">
-      <Filter>src\Celestial\Events</Filter>
+      <Filter>Celestial\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Celestial\Events\Event.h">
-      <Filter>src\Celestial\Events</Filter>
+      <Filter>Celestial\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Celestial\Events\KeyEvent.h">
-      <Filter>src\Celestial\Events</Filter>
+      <Filter>Celestial\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Celestial\Events\MouseEvent.h">
-      <Filter>src\Celestial\Events</Filter>
+      <Filter>Celestial\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Celestial\Log.h">
-      <Filter>src\Celestial</Filter>
+      <Filter>Celestial</Filter>
     </ClInclude>
-    <ClInclude Include="src\clpch.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\Celestial\Window.h">
+      <Filter>Celestial</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Celestial\Application.cpp">
-      <Filter>src\Celestial</Filter>
+      <Filter>Celestial</Filter>
     </ClCompile>
     <ClCompile Include="src\Celestial\Log.cpp">
-      <Filter>src\Celestial</Filter>
+      <Filter>Celestial</Filter>
     </ClCompile>
-    <ClCompile Include="src\clpch.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\clpch.cpp" />
   </ItemGroup>
 </Project>

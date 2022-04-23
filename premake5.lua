@@ -10,6 +10,11 @@ workspace "Celestial"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Celestial/vendor/GLFW/include"
+
+include "Celestial/vendor/GLFW"
+
 project "Celestial"
 	location "Celestial"
 	kind "SharedLib"
@@ -24,14 +29,20 @@ project "Celestial"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/Celestial.h",
 		"%{prj.name}/src/**.cpp" 
 	}
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -42,6 +53,7 @@ project "Celestial"
 		defines
 		{
 			"CL_BUILD_DLL",
+			"CL_ENABLE_ASSERTS",
 			"CL_PLATFORM_WINDOWS"
 		}
 		
@@ -53,12 +65,18 @@ project "Celestial"
 	filter "configurations:Debug"
 		defines "CL_DEBUG"
 		symbols "On"
+		staticruntime "off"
+		runtime "Debug"
 	filter "configurations:Release"
 		defines "CL_RELEASE"
 		optimize "On"
+		staticruntime "off"
+		runtime "Release"
 	filter "configurations:Dist"
 		defines "CL_DIST"
 		optimize "On"
+		staticruntime "off"
+		runtime "Release"
 
 project "Sandbox"
 	location "Sandbox"
@@ -97,10 +115,10 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "CL_DEBUG"
-		symbols "On"
+		symbols "on"
 	filter "configurations:Release"
 		defines "CL_RELEASE"
-		optimize "On"
+		optimize "on"
 	filter "configurations:Dist"
 		defines "CL_DIST"
-		optimize "On"
+		optimize "on"

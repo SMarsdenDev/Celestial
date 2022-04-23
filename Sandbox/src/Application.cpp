@@ -1,4 +1,4 @@
-#include "Celestial.h"
+#include "src/Celestial.h"
 
 class Sandbox : public Celestial::Application
 {
