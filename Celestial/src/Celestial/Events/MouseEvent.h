@@ -1,3 +1,33 @@
+/*****************************************************************************/
+/*!
+\file   MouseEvent.h
+\author Sam Marsden
+\par    email: smarsden1999\@gmail.com
+\date   4/23/2022
+\brief
+		This file contains the declaration of all Mouse-specific Events
+
+		Functions include:
+
+			 + MouseMovedEvent
+			 + GetX
+			 + GetY
+			 + ToString
+
+			 + MouseScrolledEvent
+			 + GetX
+			 + GetY
+			 + ToString
+
+			 + MouseButtonEvent
+
+			 + MouseButtonPressedEvent
+			 + ToString
+
+			 + MouseButtonReleasedEvent
+			 + ToString
+*/
+/*****************************************************************************/
 #pragma once
 
 #include "Event.h"

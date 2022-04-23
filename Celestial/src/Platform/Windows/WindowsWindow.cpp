@@ -1,3 +1,27 @@
+/*****************************************************************************/
+/*!
+\file   WindowsWindow.cpp
+\author Sam Marsden
+\par    email: smarsden1999\@gmail.com
+\date   4/23/2022
+\brief
+		This file contains the class definition for the Windows-specific window,
+		it also defines the static Create function declared in Window.h
+
+		Functions include:
+
+			 + GLFWErrorCallback
+
+			 + Create
+			 + WindowsWindow
+			 + ~WindowsWindow
+			 + Init
+			 + Shutdown
+			 + OnUpdate
+			 + SetVSync
+			 + IsVSync
+*!/
+/*****************************************************************************/
 #include "clpch.h"
 #include "WindowsWindow.h"
 #include "Celestial/Core.h"
@@ -10,26 +34,75 @@ namespace Celestial
 {
 	static bool s_GLFWInitialized = false;
 
-	static void GLFWErrorCallback(int error, const char* desc)
+
+	/*****************************************************************************/
+    /*!
+      \brief
+        The callback function for a GLFW error
+
+			\param error
+				The integer code for the GLFW error
+
+			\param desc
+				The description for the error
+    */
+	/*****************************************************************************/
+  static void GLFWErrorCallback(int error, const char* desc)
 	{
 		CL_CORE_ERROR("GLFW Error {{0}}: {1}", error, desc);
 	}
 
-	Window* Window::Create(const WindowProps& props)
+	/*****************************************************************************/
+    /*!
+      \brief
+        Creates a window context using properties, sets as current
+
+			\param props
+				The structure containing window properties
+
+			\return
+				Returns a pointer to the GLFWwindow
+    */
+	/*****************************************************************************/
+  Window* Window::Create(const WindowProps& props)
 	{
 		return new WindowsWindow(props);
 	}
 
+	/*****************************************************************************/
+	/*!
+		\brief
+			Conversion Constructor
+
+		\param props
+			The structure containing window properties
+	*/
+	/*****************************************************************************/
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
 		Init(props);
 	}
 
+	/*****************************************************************************/
+	/*!
+		\brief
+			Destructor
+	*/
+	/*****************************************************************************/
 	WindowsWindow::~WindowsWindow()
 	{
 		Shutdown();
 	}
 
+	/*****************************************************************************/
+	/*!
+		\brief
+			Initalizes window with property data, sets event callbacks
+
+		\param props
+			The structure containing window properties
+	*/
+	/*****************************************************************************/
 	void WindowsWindow::Init(const WindowProps& props)
 	{
 		m_Data.Title = props.Title;
@@ -129,17 +202,39 @@ namespace Celestial
 				data.EventCallback(event);
 			});
 	}
+	
+	/*****************************************************************************/
+	/*!
+		\brief
+			Destroys window
+	*/
+	/*****************************************************************************/
 	void WindowsWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
 	}
 
+	/*****************************************************************************/
+	/*!
+		\brief
+			Polls events, swaps frame buffers
+	*/
+	/*****************************************************************************/
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
 	}
 
+	/*****************************************************************************/
+	/*!
+		\brief
+			Sets VSync, since we can't get that info through OpenGL
+
+		\param enabled
+			The boolean to set to VSync
+	*/
+	/*****************************************************************************/
 	void WindowsWindow::SetVSync(bool enabled)
 	{
 		if (enabled)
@@ -150,6 +245,15 @@ namespace Celestial
 		m_Data.VSync = enabled;
 	}
 
+	/*****************************************************************************/
+	/*!
+		\brief
+			Getter for VSync
+
+		\return
+			Returns if VSync is active
+	*/
+	/*****************************************************************************/
 	bool WindowsWindow::IsVSync() const
 	{
 		return m_Data.VSync;

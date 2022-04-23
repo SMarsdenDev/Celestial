@@ -1,3 +1,25 @@
+/*****************************************************************************/
+/*!
+\file   WindowsWindow.h
+\author Sam Marsden
+\par    email: smarsden1999\@gmail.com
+\date   4/23/2022
+\brief
+		This file contains the class declaration for the Windows-specific window
+
+		Functions include:
+
+			 + GLFWErrorCallback
+
+			 + WindowsWindow
+			 + ~WindowsWindow
+			 + Init
+			 + Shutdown
+			 + OnUpdate
+			 + SetVSync
+			 + IsVSync
+*!/
+/*****************************************************************************/
 #pragma once
 
 #include "Celestial/Window.h"

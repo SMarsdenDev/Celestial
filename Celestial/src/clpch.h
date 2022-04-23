@@ -1,4 +1,14 @@
-#pragma once
+/*****************************************************************************/
+/*!
+\file   clpch.h
+\author Sam Marsden
+\par    email: smarsden1999\@gmail.com
+\date   4/23/2022
+\brief
+		This file contains the headers part of external libraries, or finalized
+		Celestial libraries, to be precompiled
+*!/
+/*****************************************************************************/#pragma once
 
 #include <iostream>
 #include <memory>

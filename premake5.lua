@@ -11,9 +11,9 @@ workspace "Celestial"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "Celestial/vendor/GLFW/include"
+IncludeDir["GLFW"] = "Celestial/vendor/GLFWgit/include"
 
-include "Celestial/vendor/GLFW"
+include "Celestial/vendor/GLFWgit"
 
 project "Celestial"
 	location "Celestial"

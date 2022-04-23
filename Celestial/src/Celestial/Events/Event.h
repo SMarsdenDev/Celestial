@@ -1,3 +1,24 @@
+/*****************************************************************************/
+/*!
+\file   Event.h
+\author Sam Marsden
+\par    email: smarsden1999\@gmail.com
+\date   4/23/2022
+\brief
+		This file contains the declaration of all core Event features, including
+		EventType, EventCategory, EventDispatcher, and Event-specific defines
+
+		Functions include:
+
+			 + GetStaticType
+			 + GetEventType
+		   + GetName
+			 + GetCategoryFlags
+			 + ToString
+			 + IsInCategory
+			 + operator<<
+*/
+/*****************************************************************************/
 #pragma once
 
 #include "Celestial/Core.h"

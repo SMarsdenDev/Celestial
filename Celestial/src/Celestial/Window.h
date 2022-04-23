@@ -1,3 +1,27 @@
+/*****************************************************************************/
+/*!
+\file   Window.h
+\author Sam Marsden
+\par    email: smarsden1999\@gmail.com
+\date   4/23/2022
+\brief
+		This file contains the declaration for the abstract Window class, which
+		will store window data and event callback
+
+		Functions include:
+
+			 + WindowProps
+
+			 + ~Window
+			 + OnUpdate
+			 + GetWidth
+			 + GetHeight
+			 + SetEventCallback
+			 + SetVSync
+			 + IsVSync
+			 + Create
+*!/
+/*****************************************************************************/
 #pragma once
 #include "clpch.h"
 
@@ -12,6 +36,21 @@ namespace Celestial
 		unsigned int Width;
 		unsigned int Height;
 
+		/*****************************************************************************/
+		/*!
+			\brief
+				Conversion Constructor
+
+			\param title
+				The title to set the window to
+
+			\param width
+				An width of the window
+
+			\param height
+				An width of the height
+		*/
+		/*****************************************************************************/
 		WindowProps(const std::string& title = "Celestial Engine",
 			unsigned int width = 1280,
 			unsigned int height = 720)
@@ -22,7 +61,6 @@ namespace Celestial
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
-
 		virtual ~Window() {}
 
 		virtual void OnUpdate() = 0;

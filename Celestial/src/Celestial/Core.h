@@ -1,3 +1,14 @@
+/*****************************************************************************/
+/*!
+\file   Core.h
+\author Sam Marsden
+\par    email: smarsden1999\@gmail.com
+\date   4/23/2022
+\brief
+		This file contains preprocessor defines necessarily by core features of 
+		the Celestial Engine
+*!/
+/*****************************************************************************/
 #pragma once
 
 #ifdef CL_PLATFORM_WINDOWS

@@ -1,3 +1,28 @@
+/*****************************************************************************/
+/*!
+\file   ApplicationEvent.h
+\author Sam Marsden
+\par    email: smarsden1999\@gmail.com
+\date   4/23/2022
+\brief
+		This file contains the declaration of all application-side events
+
+		Functions include:
+
+			 + WindowResizeEvent
+			 + GetWidth
+			 + GetHeight
+			 + ToString
+
+			 + WindowCloseEvent
+
+			 + AppTickEvent
+			  
+			 + AppUpdateEvent
+
+			 + AppRenderEvent
+*/
+/*****************************************************************************/
 #pragma once
 
 #include "Event.h"

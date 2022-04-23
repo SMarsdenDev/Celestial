@@ -1,6 +1,22 @@
 #pragma once
 
 #include "Core.h"
+/*****************************************************************************/
+/*!
+\file   Log.h
+\author Sam Marsden
+\par    email: smarsden1999\@gmail.com
+\date   4/23/2022
+\brief
+		This file contains the declaration of the Logging system, which is a
+		wrapper around spdlog, as well as key macros for logging in the Celestial
+		Engine and client application
+
+		Functions include:
+
+			 + Init
+*!/
+/*****************************************************************************/
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 
