@@ -39,6 +39,10 @@ namespace Celestial
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
 
+		inline Window& GetWindow() const { return *m_Window; }
+
+		inline static Application& Get() { return *s_Instance; }
+
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
@@ -46,6 +50,8 @@ namespace Celestial
 		bool m_Running = true;
 
 		LayerStack m_LayerStack;
+	private:
+		static Application* s_Instance;
 	};
 
 	// Will be defined in the client

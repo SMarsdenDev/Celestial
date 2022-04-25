@@ -18,6 +18,7 @@
 #include "src/Celestial/Application.h"
 #include "src/Celestial/Log.h"
 #include "Celestial/Layer.h"
+#include "Celestial/ImGUI/ImGUILayer.h"
 
 //! Entry Point *********************
 #include "src/Celestial/EntryPoint.h"

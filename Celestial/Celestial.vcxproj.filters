@@ -7,8 +7,14 @@
     <Filter Include="Celestial\Events">
       <UniqueIdentifier>{9FAC8658-8BA5-A5AA-B4D7-8A2FA02F85B6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Celestial\ImGUI">
+      <UniqueIdentifier>{45C64E77-B151-BC3B-BA62-3F30266D183C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="src\Celestial\Events\MouseEvent.h">
       <Filter>Celestial\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Celestial\ImGUI\ImGUILayer.h">
+      <Filter>Celestial\ImGUI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Celestial\Layer.h">
       <Filter>Celestial</Filter>
     </ClInclude>
@@ -49,6 +58,9 @@
     <ClInclude Include="src\Celestial\Window.h">
       <Filter>Celestial</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -58,6 +70,9 @@
     <ClCompile Include="src\Celestial\Application.cpp">
       <Filter>Celestial</Filter>
     </ClCompile>
+    <ClCompile Include="src\Celestial\ImGUI\ImGUILayer.cpp">
+      <Filter>Celestial\ImGUI</Filter>
+    </ClCompile>
     <ClCompile Include="src\Celestial\Layer.cpp">
       <Filter>Celestial</Filter>
     </ClCompile>
@@ -66,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="src\Celestial\Log.cpp">
       <Filter>Celestial</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\imgui_impl_opengl3.cpp">
+      <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
