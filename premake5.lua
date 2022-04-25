@@ -12,8 +12,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Celestial/vendor/GLFWgit/include"
+IncludeDir["Glad"] = "Celestial/vendor/Glad/include"
 
 include "Celestial/vendor/GLFWgit"
+include "Celestial/vendor/Glad"
 
 project "Celestial"
 	location "Celestial"
@@ -36,12 +38,14 @@ project "Celestial"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "Celestial"
 		{
 			"CL_BUILD_DLL",
 			"CL_ENABLE_ASSERTS",
-			"CL_PLATFORM_WINDOWS"
+			"CL_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE"
 		}
 		
 		postbuildcommands
@@ -67,16 +72,19 @@ project "Celestial"
 		symbols "On"
 		staticruntime "off"
 		runtime "Debug"
+		buildoptions "/MDd"
 	filter "configurations:Release"
 		defines "CL_RELEASE"
 		optimize "On"
 		staticruntime "off"
 		runtime "Release"
+		buildoptions "/MD"
 	filter "configurations:Dist"
 		defines "CL_DIST"
 		optimize "On"
 		staticruntime "off"
 		runtime "Release"
+		buildoptions "/MD"
 
 project "Sandbox"
 	location "Sandbox"

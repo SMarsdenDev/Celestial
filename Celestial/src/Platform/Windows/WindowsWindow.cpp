@@ -30,6 +30,8 @@
 #include "Celestial/Events/MouseEvent.h"
 #include "Celestial/Events/KeyEvent.h"
 
+#include "Glad/glad.h"
+
 namespace Celestial
 {
 	static bool s_GLFWInitialized = false;
@@ -105,6 +107,7 @@ namespace Celestial
 	/*****************************************************************************/
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+		// Set Window Properties
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -118,29 +121,39 @@ namespace Celestial
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
-
+		//! Create Window
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
-		glfwSetWindowUserPointer(m_Window, &m_Data);
+
+		//! Initialize Glad
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		CL_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		glfwSetWindowUserPointer(m_Window, &m_Data); //!< Stores parameter data in OpenGL buffer storage
 		SetVSync(true);
 
+		// Set Window Event Callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int w, int h)
 			{
+				//! Get window data from OpenGL buffer storafe
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
+				//! Create resize event
 				WindowResizeEvent event(w, h);
 				data.Width = w;
 				data.Height = h;
 
+				//! Call event callback with resize event
 				data.EventCallback(event);
 			});
-
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 				WindowCloseEvent event;
 				data.EventCallback(event);
 			});
+
+		// Set Key Event Callbacks
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -169,6 +182,7 @@ namespace Celestial
 
 			});
 
+		// Set Mouse Event Callbacks
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);

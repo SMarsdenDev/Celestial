@@ -24,6 +24,8 @@
 #include "Celestial/Events/Event.h"
 #include "Celestial/Log.h"
 
+#include "glad/glad.h"
+
 namespace Celestial
 {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -64,6 +66,12 @@ namespace Celestial
 
     while (m_Running)
     {
+      glClearColor(113.f / 255.f, 74.f / 255.f, 138.f / 255.f, 1.f);
+      glClear(GL_COLOR_BUFFER_BIT);
+
+      for (Layer* layer : m_LayerStack)
+        layer->OnUpdate();
+
       m_Window->OnUpdate();
     }
   }
@@ -72,10 +80,10 @@ namespace Celestial
 /*****************************************************************************/
     /*!
       \brief
-        Defines a Window Close Event that will be called by OpenGL
+        Processed events received by glfw
       
       \param e
-        The event to dispatch
+        The event to process
     */
 /*****************************************************************************/
   void Application::OnEvent(Event& e)
@@ -84,6 +92,41 @@ namespace Celestial
     dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
     CL_CORE_TRACE("{0}", e);
+
+    for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+    {
+      (*--it)->OnEvent(e);
+      if (e.Handled)
+        break;
+    }
+  }
+
+  /*****************************************************************************/
+    /*!
+      \brief
+        Pushes a layer into the application's layer stack
+
+      \param layer
+        The layer to push
+    */
+    /*****************************************************************************/
+  void Application::PushLayer(Layer* layer)
+  {
+    m_LayerStack.PushLayer(layer);
+  }
+
+  /*****************************************************************************/
+     /*!
+       \brief
+         Pushes a overlay into the application's layer stack
+
+       \param overlay
+         The overlay to push
+     */
+  /*****************************************************************************/
+  void Application::PushOverlay(Layer* overlay)
+  {
+    m_LayerStack.PushOverlay(overlay);
   }
 
   

@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-\file   Application.cpp
+\file   SandboxClient.cpp
 \author Sam Marsden
 \par    email: smarsden1999\@gmail.com
 \date   4/23/2022
@@ -18,6 +18,26 @@
 /*****************************************************************************/
 #include "src/Celestial.h"
 
+class ExampleLayer : public Celestial::Layer
+{
+public:
+	ExampleLayer()
+		: Layer("Example")
+	{
+
+	}
+
+	void OnUpdate() override
+	{
+		CL_INFO("ExampleLayer:Update");
+	}
+
+	void OnEvent(Celestial::Event& e) override
+	{
+		CL_TRACE("Application Evnet");
+	}
+};
+
 class Sandbox : public Celestial::Application
 {
 public:
@@ -29,7 +49,7 @@ public:
 	/*****************************************************************************/
 	Sandbox()
 	{
-
+		PushLayer(new ExampleLayer());
 	}
 	
 	/*****************************************************************************/

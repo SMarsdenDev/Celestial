@@ -37,6 +37,12 @@
     <ClInclude Include="src\Celestial\Events\MouseEvent.h">
       <Filter>Celestial\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Celestial\Layer.h">
+      <Filter>Celestial</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Celestial\LayerStack.h">
+      <Filter>Celestial</Filter>
+    </ClInclude>
     <ClInclude Include="src\Celestial\Log.h">
       <Filter>Celestial</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Celestial\Application.cpp">
+      <Filter>Celestial</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Celestial\Layer.cpp">
+      <Filter>Celestial</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Celestial\LayerStack.cpp">
       <Filter>Celestial</Filter>
     </ClCompile>
     <ClCompile Include="src\Celestial\Log.cpp">

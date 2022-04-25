@@ -17,6 +17,7 @@
 // For use by Celestial applications
 #include "src/Celestial/Application.h"
 #include "src/Celestial/Log.h"
+#include "Celestial/Layer.h"
 
 //! Entry Point *********************
 #include "src/Celestial/EntryPoint.h"
