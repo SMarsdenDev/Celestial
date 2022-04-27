@@ -29,12 +29,19 @@ public:
 
 	void OnUpdate() override
 	{
-		CL_INFO("ExampleLayer:Update");
+		if (Celestial::Input::IsKeyPressed(CL_KEY_TAB))
+			CL_TRACE("Tab Key is Pressed! (checking every frame)");
 	}
 
 	void OnEvent(Celestial::Event& e) override
 	{
-		CL_TRACE("Application Evnet");
+		if (e.GetEventType() == Celestial::EventType::KeyPressed)
+		{
+			Celestial::KeyPressedEvent pressedEvent = (Celestial::KeyPressedEvent&)e;
+			if(pressedEvent.GetKeyCode() == CL_KEY_TAB)
+				CL_TRACE("Tab Key is Pressed! (Event)");
+			CL_TRACE("{0}", (char)pressedEvent.GetKeyCode());
+		}
 	}
 };
 
@@ -43,7 +50,7 @@ class Sandbox : public Celestial::Application
 public:
 	/*****************************************************************************/
 	/*!
-		\brief
+		\brief[
 			Default Constructor
 	*/
 	/*****************************************************************************/

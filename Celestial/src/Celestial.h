@@ -18,6 +18,11 @@
 #include "src/Celestial/Application.h"
 #include "src/Celestial/Log.h"
 #include "Celestial/Layer.h"
+
+#include "Celestial/CLKeycodes.h"
+#include "Celestial/MouseButtonCodes.h"
+#include "Celestial/Input.h"
+
 #include "Celestial/ImGUI/ImGUILayer.h"
 
 //! Entry Point *********************

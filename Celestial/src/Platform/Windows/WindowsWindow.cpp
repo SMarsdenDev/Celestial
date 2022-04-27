@@ -181,6 +181,12 @@ namespace Celestial
 				}
 
 			});
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+			{
+				WindowData& data = *(WindowData*)(glfwGetWindowUserPointer(window));
+				KeyTypedEvent event(keycode);
+				data.EventCallback(event);
+			});
 
 		// Set Mouse Event Callbacks
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
@@ -197,7 +203,7 @@ namespace Celestial
 					}
 					case GLFW_RELEASE:
 					{
-						MouseButtonPressedEvent event(button);
+						MouseButtonReleasedEvent event(button);
 						data.EventCallback(event);
 						break;
 					}
@@ -271,5 +277,9 @@ namespace Celestial
 	bool WindowsWindow::IsVSync() const
 	{
 		return m_Data.VSync;
+	}
+	inline void* WindowsWindow::GetNativeWindow() const
+	{
+		return m_Window;
 	}
 }

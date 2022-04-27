@@ -26,6 +26,8 @@
 
 #include "glad/glad.h"
 
+#include "Input.h"
+
 namespace Celestial
 {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -71,10 +73,12 @@ namespace Celestial
     {
       glClearColor(113.f / 255.f, 74.f / 255.f, 138.f / 255.f, 1.f);
       glClear(GL_COLOR_BUFFER_BIT);
-
+      
+      // Update the layer stack
       for (Layer* layer : m_LayerStack)
         layer->OnUpdate();
 
+      // Update the window
       m_Window->OnUpdate();
     }
   }
@@ -93,8 +97,6 @@ namespace Celestial
   {
     EventDispatcher dispatcher(e);
     dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-
-    CL_CORE_TRACE("{0}", e);
 
     for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
     {

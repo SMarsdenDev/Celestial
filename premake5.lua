@@ -14,6 +14,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Celestial/vendor/GLFWgit/include"
 IncludeDir["Glad"] = "Celestial/vendor/Glad/include"
 IncludeDir["ImGUI"] = "Celestial/vendor/ImGUI"
+IncludeDir["glm"] = "Celestial/vendor/glm"
 
 include "Celestial/vendor/GLFWgit"
 include "Celestial/vendor/Glad"
@@ -33,7 +34,9 @@ project "Celestial"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp" 
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -42,7 +45,8 @@ project "Celestial"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGUI}"
+		"%{IncludeDir.ImGUI}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -101,13 +105,14 @@ project "Sandbox"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp" 
+		"%{prj.name}/src/**.cpp"
 	}
 
 	includedirs
 	{
 		"Celestial/vendor/spdlog/include",
-		"Celestial"
+		"Celestial",
+		"%{IncludeDir.glm}"
 	}
 
 	links
