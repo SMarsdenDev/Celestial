@@ -30,7 +30,7 @@
 #include "Celestial/Events/MouseEvent.h"
 #include "Celestial/Events/KeyEvent.h"
 
-#include "Glad/glad.h"
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Celestial
 {
@@ -114,6 +114,7 @@ namespace Celestial
 
 		CL_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
+
 		if (!s_GLFWInitialized)
 		{
 			int success = glfwInit();
@@ -123,11 +124,9 @@ namespace Celestial
 		}
 		//! Create Window
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
 
-		//! Initialize Glad
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		CL_CORE_ASSERT(status, "Failed to initialize Glad!");
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data); //!< Stores parameter data in OpenGL buffer storage
 		SetVSync(true);
@@ -243,7 +242,7 @@ namespace Celestial
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 	/*****************************************************************************/
@@ -278,6 +277,16 @@ namespace Celestial
 	{
 		return m_Data.VSync;
 	}
+
+	/*****************************************************************************/
+		/*!
+			\brief
+				Returns a raw pointer to the window
+
+			\return
+				Returns a (void*) of the window
+		*/
+		/*****************************************************************************/
 	inline void* WindowsWindow::GetNativeWindow() const
 	{
 		return m_Window;

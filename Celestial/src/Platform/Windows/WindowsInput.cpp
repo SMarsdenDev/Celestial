@@ -29,7 +29,7 @@ namespace Celestial
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
-		return xpos;
+		return (float)xpos;
 	}
 
 	inline float WindowsInput::GetMouseYImpl()
@@ -37,7 +37,7 @@ namespace Celestial
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
-		return ypos;
+		return (float)ypos;
 	}
 
 	inline std::pair<float, float> WindowsInput::GetMousePositionImpl()
@@ -45,7 +45,7 @@ namespace Celestial
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
-		return std::pair<float, float>(xpos, ypos);
+		return std::pair<float, float>((float)xpos, (float)ypos);
 	}
 
 }

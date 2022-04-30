@@ -12,20 +12,9 @@
 			 + ImGUILayer
 			 + ~ImGUILayer
 
-			 + OnUpdate
+			 + OnImGUIRender
 			 + OnAttach
 			 + OnDetach
-			 + OnEvent
-
-			 + OnMouseMovedEvent
-			 + OnMouseScrolledEvent
-
-			 + OnWindowResizeEvent
-			 + OnWindowCloseEvent
-
-			 + OnKeyPressedEvent
-			 + OnKeyReleasedEvent
-			 + OnKeyTypedEvent
 
 *!/
 /*****************************************************************************/
@@ -45,24 +34,15 @@ namespace Celestial
 		ImGUILayer();
 		~ImGUILayer();
 
-		void OnUpdate();
-		void OnAttach();
-		void OnDetach();
-		void OnEvent(Event& e);
+		virtual void OnImGUIRender();
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+
+		void Begin();
+		void End();
+
 	private:
-		bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& e);
-		bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e);
-		bool OnMouseMovedEvent(MouseMovedEvent& e);
-		bool OnMouseScrolledEvent(MouseScrolledEvent& e);
-
-		bool OnWindowResizeEvent(WindowResizeEvent& e);
-		bool OnWindowCloseEvent(WindowCloseEvent& e);
-
-		bool OnKeyPressedEvent(KeyPressedEvent& e);
-		bool OnKeyReleasedEvent(KeyReleasedEvent& e);
-
-		bool OnKeyTypedEvent(KeyTypedEvent& e);
-		
+				
 	private:
 		float m_Time = 0.f;
 	};

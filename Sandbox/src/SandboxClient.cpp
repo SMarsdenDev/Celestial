@@ -10,6 +10,11 @@
 
 		Functions include:
 
+			 + ExampleLayer
+			 + ~ExampleLayer
+			 + OnImGUIRender
+			 + OnEvent
+
 			 + Sandbox
 			 + ~Sandbox
 
@@ -17,6 +22,8 @@
 *!/
 /*****************************************************************************/
 #include "src/Celestial.h"
+
+#include "ImGUI/imgui.h"
 
 class ExampleLayer : public Celestial::Layer
 {
@@ -31,6 +38,13 @@ public:
 	{
 		if (Celestial::Input::IsKeyPressed(CL_KEY_TAB))
 			CL_TRACE("Tab Key is Pressed! (checking every frame)");
+	}
+
+	virtual void OnImGUIRender() override
+	{
+		ImGui::Begin("Example Layer ImGUI");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 
 	void OnEvent(Celestial::Event& e) override
@@ -57,7 +71,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Celestial::ImGUILayer);
 	}
 	
 	/*****************************************************************************/

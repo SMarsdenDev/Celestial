@@ -21,6 +21,7 @@
 #include "Core.h"
 #include "Window.h"
 #include "LayerStack.h"
+#include "ImGUI/ImGUILayer.h"
 
 #include "Celestial/Events/ApplicationEvent.h"
 
@@ -50,8 +51,11 @@ namespace Celestial
 		bool m_Running = true;
 
 		LayerStack m_LayerStack;
+
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
 	private:
 		static Application* s_Instance;
+		ImGUILayer* m_ImGUILayer;
 	};
 
 	// Will be defined in the client

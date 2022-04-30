@@ -8,8 +8,10 @@
 		This file contains the headers part of external libraries, or finalized
 		Celestial libraries, to be precompiled
 *!/
-/*****************************************************************************/#pragma once
+/*****************************************************************************/
+#pragma once
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <memory>
 #include <utility>

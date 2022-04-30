@@ -61,7 +61,7 @@ namespace Celestial
 
 		inline bool IsInCategory(EventCategory category)
 		{
-			return GetCategoryFlags() & category;
+			return GetCategoryFlags() & static_cast<int>(category);
 		}
 	public:
 		bool Handled = false;

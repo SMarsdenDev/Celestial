@@ -22,8 +22,10 @@ include "Celestial/vendor/ImGUI"
 
 project "Celestial"
 	location "Celestial"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -58,8 +60,6 @@ project "Celestial"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -70,34 +70,25 @@ project "Celestial"
 			"GLFW_INCLUDE_NONE"
 		}
 		
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
-
 	filter "configurations:Debug"
 		defines "CL_DEBUG"
 		symbols "On"
-		staticruntime "off"
 		runtime "Debug"
-		buildoptions "/MDd"
 	filter "configurations:Release"
 		defines "CL_RELEASE"
 		optimize "On"
-		staticruntime "off"
 		runtime "Release"
-		buildoptions "/MD"
 	filter "configurations:Dist"
 		defines "CL_DIST"
 		optimize "On"
-		staticruntime "off"
 		runtime "Release"
-		buildoptions "/MD"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "On"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -112,7 +103,8 @@ project "Sandbox"
 	{
 		"Celestial/vendor/spdlog/include",
 		"Celestial",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"Celestial/vendor"
 	}
 
 	links
@@ -121,8 +113,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines

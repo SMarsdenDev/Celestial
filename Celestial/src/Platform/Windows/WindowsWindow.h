@@ -23,7 +23,11 @@
 #pragma once
 
 #include "Celestial/Window.h"
-#include "GLFW/glfw3.h"
+
+#include "Celestial/Renderer/GraphicsContext.h"
+#include "Glad/glad.h"
+#include <GLFW/glfw3.h>
+
 
 namespace Celestial
 {
@@ -48,6 +52,7 @@ namespace Celestial
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

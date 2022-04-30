@@ -16,6 +16,7 @@
 			 + OnDetach
 			 + OnUpdate
 			 + OnEvent
+			 + OnImGUIRender
 
 			 + GetName
 *!/
@@ -37,6 +38,7 @@ namespace Celestial
 		virtual void OnDetach() {}
 		virtual void OnUpdate() {}
 		virtual void OnEvent(Event& event) {}
+		virtual void OnImGUIRender() {}
 
 		inline const std::string& GetName() const { return m_DebugName; }
 	protected:
